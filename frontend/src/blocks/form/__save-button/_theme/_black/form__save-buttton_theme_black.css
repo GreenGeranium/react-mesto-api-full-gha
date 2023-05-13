@@ -1,0 +1,16 @@
+.form__save-buttton_theme_black {
+    background: white;
+    color: black;
+    margin-top: calc(216px - 30px);
+}
+
+.form__save-buttton_theme_black:hover {
+    background-color: white;
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 410px) {
+    .form__save-buttton_theme_black {
+        margin-top: calc(187px - 30px);
+    }
+}

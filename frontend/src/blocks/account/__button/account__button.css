@@ -1,0 +1,32 @@
+.account__button {
+    display: none;
+    width: 27px;
+}
+
+.account__button:before,
+.account__button:after,
+.account__button div {
+    background: white;
+    content: "";
+    display: block;
+    height: 3px;
+    margin: 0;
+    transition: 0.5s;
+}
+.account__button:hover:before {
+    transform: translateY(12px) rotate(135deg);
+}
+.account__button:hover:after {
+    transform: translateY(-12px) rotate(-135deg);
+}
+.account__button:hover div {
+    transform: scale(0);
+}
+
+@media screen and (max-width: 500px) {
+    .account__button {
+        display: flex;
+        flex-direction: column;
+        row-gap: 9px;
+    }
+}

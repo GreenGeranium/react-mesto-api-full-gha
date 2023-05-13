@@ -1,0 +1,12 @@
+.account {
+    column-gap: 30px;
+    display: flex;
+    padding-top: 6px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .account {
+        display: none
+    }
+}
