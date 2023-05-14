@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.21.16
 
-Frontend https://...
+Frontend https://geranius.nomoredomains.monster
 
-Backend https://...
+Backend https://api.geranius.nomoredomains.monster
