@@ -14,7 +14,13 @@ const { auth } = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err');
 
 const allowedCors = [
-  'http://localhost:4000', 'http://localhost:3000', 'http://localhost:3001'
+  'http://localhost:4000',
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://api.geranius.nomoredomains.monster',
+  'https://api.geranius.nomoredomains.monster',
+  'http://geranius.nomoredomains.monster',
+  'https://geranius.nomoredomains.monster',
 ];
 
 // запуск сервера с дефолтным портом 3000
