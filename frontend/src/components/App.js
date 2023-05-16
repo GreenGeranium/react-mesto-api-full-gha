@@ -38,18 +38,6 @@ function App() {
   //данные карточки, которую нужно удалить
   const [deletingCard, setDeletingCard] = useState({});
 
-  //получение действующего профиля при рендере
-  useEffect(() => {
-    api
-      .getUserInfo()
-      .then((data) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   //открытие попапа подтверждения удаления и передача данных карточки для удаления
   function handleConfirmation(card) {
     setIsConfirmationPopupOpen(true);
@@ -97,18 +85,6 @@ function App() {
         console.log(err);
       });
   }
-
-  //рендер всех карточек
-  useEffect(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   //отправка на сервер новых данных пользователя из формы
   function handleUpdateUser(data) {
@@ -220,7 +196,6 @@ function App() {
     auth
       .authorize(email, password)
       .then((data) => {
-        console.log(data)
         if (data.token) {
           navigate("/", { replace: true });
           setLoggedIn(true);
@@ -252,6 +227,25 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
+
+      //получение действующего профиля при рендере
+      api
+          .getUserInfo()
+          .then((data) => {
+            setCurrentUser(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      //рендер всех карточек
+      api
+          .getInitialCards()
+          .then((data) => {
+            setCards(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     }
   }, []);
 
