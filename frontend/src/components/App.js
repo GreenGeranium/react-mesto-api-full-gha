@@ -69,7 +69,7 @@ function App() {
   //обработчик лайка карточки
   function handleCardLike(card) {
     const isLiked = card.likes.some(
-      (cardLiker) => cardLiker._id === currentUser._id
+      (cardLiker) => cardLiker === currentUser._id
     );
 
     api
@@ -227,27 +227,29 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
+        //получение действующего профиля при рендере
+        api
+            .getUserInfo()
+            .then((data) => {
+              setCurrentUser(data);
+              console.log(true)
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        //рендер всех карточек
+        api
+            .getInitialCards()
+            .then((data) => {
+              setCards(data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
 
-      //получение действующего профиля при рендере
-      api
-          .getUserInfo()
-          .then((data) => {
-            setCurrentUser(data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      //рендер всех карточек
-      api
-          .getInitialCards()
-          .then((data) => {
-            setCards(data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
     }
   }, []);
+
 
   //выход из аккаунта
   function onSignout() {

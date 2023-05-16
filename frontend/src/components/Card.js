@@ -6,7 +6,7 @@ function Card(props) {
 
   //проверка проставлен ли лайк
   const isLiked = props.card.likes.some(
-    (cardLiker) => cardLiker._id === userData._id
+    (cardLiker) => cardLiker === userData._id
   );
   const cardLikeButtonClassName = `card__button ${
     isLiked && "card__button_active"

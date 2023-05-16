@@ -55,7 +55,6 @@ app.use((req, res, next) => {
 });
 
 app.use(requestLogger);
-console.log(true);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
