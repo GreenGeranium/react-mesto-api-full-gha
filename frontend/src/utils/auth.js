@@ -15,7 +15,9 @@ export function register(email, password) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
-  }).then((response) => getResponseData(response));
+  }).then((response) => {
+    getResponseData(response)
+  });
 }
 
 //авторизация пользователя
@@ -33,7 +35,7 @@ export function checkToken(jwt) {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
+      "Authorization": `Bearer ${jwt}`,
     },
   }).then((response) => getResponseData(response));
 }

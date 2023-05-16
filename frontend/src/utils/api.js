@@ -80,9 +80,9 @@ class Api {
 
 
 const api = new Api({
-  baseUrl: "api.geranius.nomoredomains.monster",
+  baseUrl: "https://api.geranius.nomoredomains.monster",
   headers: {
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDRmZDY4ODRlNWNlNGVlOWMxOGFiOGMiLCJpYXQiOjE2ODM5NjUxNjgsImV4cCI6MTY4NDU2OTk2OH0.WxpbfMpkT6993RKpMkBdaFheDS6sg7X2NOr2yEpCu-A",
+    "Authorization": `Bearer ${localStorage.getItem("token")}`,
     "Content-Type": "application/json",
   },
 });

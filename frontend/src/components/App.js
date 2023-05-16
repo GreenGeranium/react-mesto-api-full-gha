@@ -220,6 +220,7 @@ function App() {
     auth
       .authorize(email, password)
       .then((data) => {
+        console.log(data)
         if (data.token) {
           navigate("/", { replace: true });
           setLoggedIn(true);
@@ -244,7 +245,7 @@ function App() {
       auth
         .checkToken(jwt)
         .then((data) => {
-          setUserEmail(data.data.email);
+          setUserEmail(data.email);
           setLoggedIn(true);
           navigate("/", { replace: true });
         })
