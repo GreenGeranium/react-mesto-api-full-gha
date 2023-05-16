@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP 51.250.21.16
+IP 130.193.42.138
 
 Frontend https://geranius.nomoredomains.monster
 
