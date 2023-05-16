@@ -13,7 +13,7 @@ function Card(props) {
   }`;
 
   //проверка собственник ли карточки
-  const isOwner = props.card.owner._id === userData._id;
+  const isOwner = props.card.owner === userData._id;
 
   function handleClick() {
     props.onCardClick(props.card);

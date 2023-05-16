@@ -223,29 +223,31 @@ function App() {
           setUserEmail(data.email);
           setLoggedIn(true);
           navigate("/", { replace: true });
+
+          //получение действующего профиля при рендере
+          api
+              .getUserInfo()
+              .then((data) => {
+                setCurrentUser(data);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          //рендер всех карточек
+          api
+              .getInitialCards()
+              .then((data) => {
+                setCards(data);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+
+
         })
         .catch((err) => {
           console.log(err);
         });
-        //получение действующего профиля при рендере
-        api
-            .getUserInfo()
-            .then((data) => {
-              setCurrentUser(data);
-              console.log(true)
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        //рендер всех карточек
-        api
-            .getInitialCards()
-            .then((data) => {
-              setCards(data);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
 
     }
   }, []);
