@@ -90,7 +90,7 @@ app.use('/users', users);
 app.use('/cards', cards);
 
 // роут несуществующей страницы
-app.use(() => { throw new NotFoundError('Извините, такой страницы не существует!'); });
+app.use((err, req, res, next) => { next(new NotFoundError('Извините, такой страницы не существует!')) });
 
 app.use(errorLogger);
 
