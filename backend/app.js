@@ -56,12 +56,6 @@ app.use((req, res, next) => {
 
 app.use(requestLogger);
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
-
 // роут логина
 app.post('/signin', celebrate({
   body: Joi.object().keys({
